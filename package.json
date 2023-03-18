@@ -28,8 +28,5 @@
   },
   "bin": {
     "init": "./init.mjs"
-  },
-  "repository": {
-    "url": "https://github.com/LouisAndrew/eslint-config.git"
   }
 }
