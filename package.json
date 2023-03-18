@@ -1,5 +1,5 @@
 {
-  "name": "@louisandrew/eslint-config",
+  "name": "@louisandrew3/eslint-config",
   "version": "0.0.0",
   "main": "init.mjs",
   "type": "commonjs",
@@ -23,10 +23,10 @@
     "commander": "10.0.0",
     "typescript": "5.0.2"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "bin": {
     "init": "./init.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
