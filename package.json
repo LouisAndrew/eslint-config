@@ -24,9 +24,12 @@
     "typescript": "5.0.2"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@LouisAndrew"
+    "registry": "https://npm.pkg.github.com"
   },
   "bin": {
     "init": "./init.mjs"
+  },
+  "repository": {
+    "url": "https://github.com/LouisAndrew/eslint-config.git"
   }
 }
