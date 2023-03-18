@@ -3,10 +3,12 @@ import { Option, program } from "commander";
 import { writeFile } from "fs/promises";
 import { join } from "path";
 
+import pkg from "./package.json";
+
 const programOptions = ["base", "node", "vue"];
 const createContent = (path) => `module.exports = {
    root: true,
-   extends: ["@louisandrew/eslint-config/${path}.js"]
+   extends: ["${pkg.name}/${path}.js"]
 }
 `;
 

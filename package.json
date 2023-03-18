@@ -23,8 +23,7 @@
     "commander": "10.0.0"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/@LouisAndrew"
   },
   "bin": {
     "init": "./init.mjs"
