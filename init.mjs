@@ -18,6 +18,8 @@ program.addOption(
   )
 );
 
+// Non useful comment
+
 program.parse();
 const options = program.opts();
 
