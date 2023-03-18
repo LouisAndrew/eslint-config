@@ -20,7 +20,8 @@
     "prettier": "2.8.4"
   },
   "devDependencies": {
-    "commander": "10.0.0"
+    "commander": "10.0.0",
+    "typescript": "5.0.2"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@LouisAndrew"
