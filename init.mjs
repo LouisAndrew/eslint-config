@@ -3,8 +3,8 @@ import { Option, program } from "commander";
 import { writeFile } from "fs/promises";
 import { join } from "path";
 
-const programOptions = ["base", "node", "vue"] as const;
-const createContent = (path: string) => `module.exports = {
+const programOptions = ["base", "node", "vue"];
+const createContent = (path) => `module.exports = {
    root: true,
    extends: ["@louisandrew/eslint-config/${path}.js"]
 }
@@ -19,7 +19,7 @@ program.addOption(
 program.parse();
 const options = program.opts();
 
-const writeToFile = async (content: string) => {
+const writeToFile = async (content) => {
   const FILE_PATH = join("./", ".eslintrc.js");
   try {
     await writeFile(FILE_PATH, content);
@@ -36,4 +36,6 @@ if (options.type) {
       );
     }
   });
+} else {
+  console.error("Please add a project type!");
 }
