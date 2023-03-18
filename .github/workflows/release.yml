@@ -35,6 +35,18 @@ jobs:
             19.0.5 # It is recommended to specify a version range
             # for semantic-release when using
             # semantic-release-action lower than @v3
+          branches: |
+            [
+              'main',
+              {
+                name: 'beta',
+                prerelease: true
+              },
+              {
+                name: 'alpha',
+                prerelease: true
+              }
+            ]
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
