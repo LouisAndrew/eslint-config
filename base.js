@@ -9,7 +9,7 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
   ],
-  plugins: ["prettier", "simple-import-sort", "@typescript-eslint"],
+  plugins: ["import", "prettier", "simple-import-sort", "@typescript-eslint"],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
