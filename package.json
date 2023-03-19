@@ -24,7 +24,7 @@
     "typescript": "5.0.2"
   },
   "bin": {
-    "@eslint/init": "./init.mjs"
+    "@louisandrew3/eslint-config": "./bin/init"
   },
   "publishConfig": {
     "access": "public"
