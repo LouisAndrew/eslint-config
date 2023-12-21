@@ -15,7 +15,11 @@ const createContent = (path) => `module.exports = {
 const getExtraDependencies = (type) => {
   switch (type) {
     case "vue":
-      return ["@vue/eslint-config-typescript", "eslint-plugin-vue"];
+      return [
+        "@vue/eslint-config-typescript",
+        "eslint-plugin-vue",
+        "@vue/eslint-config-prettier",
+      ];
     case "react":
       return ["eslint-plugin-react", "eslint-plugin-react-hooks"];
     default:
