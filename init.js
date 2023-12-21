@@ -1,6 +1,7 @@
 const { Option, program } = require("commander");
-const { writeFile } = require("fs/promises");
+const { writeFile, readFile } = require("fs/promises");
 const { join } = require("path");
+const cb = require("clipboardy");
 
 const pkg = require("./package.json");
 
@@ -36,8 +37,24 @@ module.exports = () => {
   program.parse();
   const options = program.opts();
 
+  const isClientUsingESM = async () => {
+    try {
+      const clientPackage = JSON.parse(
+        await readFile(join("./", "package.json"), "utf-8")
+      );
+
+      if (clientPackage.type === "module") {
+        return true;
+      }
+    } catch {
+      //
+    }
+
+    return false;
+  };
   const writeToFile = async (content) => {
-    const FILE_PATH = join("./", ".eslintrc.js");
+    const isESM = await isClientUsingESM();
+    const FILE_PATH = join("./", ".eslintrc" + (isESM ? ".cjs" : ".js"));
     try {
       await writeFile(FILE_PATH, content);
     } catch (err) {
@@ -49,7 +66,11 @@ module.exports = () => {
     writeToFile(createContent(options.type)).then(() => {
       const additionalDependencies = getExtraDependencies(options.type);
       if (additionalDependencies.length > 0) {
-        console.log(`please run \`ni -D ${additionalDependencies.join(" ")}\``);
+        const installCommand = `ni -D ${additionalDependencies.join(" ")}`;
+        cb.default.writeSync(installCommand);
+        console.log(
+          `please run ${installCommand}. Install command copied to clipboard.`
+        );
       }
 
       console.log(".eslintrc.js updated 🥳");
