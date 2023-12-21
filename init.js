@@ -4,12 +4,27 @@ const { join } = require("path");
 
 const pkg = require("./package.json");
 
-const programOptions = ["base", "node", "vue"];
+const programOptions = ["base", "node", "vue", "react"];
 const createContent = (path) => `module.exports = {
    root: true,
    extends: ["${pkg.name}/${path}.js"]
 }
 `;
+
+const getExtraDependencies = (type) => {
+  switch (type) {
+    case "vue":
+      return [
+        "@vue/eslint-config-typescript",
+        "eslint-plugin-vue",
+        "@vue/eslint-config-typescript",
+      ];
+    case "react":
+      return ["eslint-plugin-react", "eslint-plugin-react-hooks"];
+    default:
+      return [];
+  }
+};
 
 module.exports = () => {
   program.addOption(
@@ -32,12 +47,12 @@ module.exports = () => {
 
   if (options.type) {
     writeToFile(createContent(options.type)).then(() => {
-      if (options.type === "vue") {
-        console.log(
-          "please run `ni -D @vue/eslint-config-typescript eslint-plugin-vue @vue/eslint-config-typescript`"
-        );
+      const additionalDependencies = getExtraDependencies(options.type);
+      if (additionalDependencies.length > 0) {
+        console.log(`please run \`ni -D ${additionalDependencies.join(" ")}\``);
       }
-      console.log(".eslintrc.js updated 🥳")
+
+      console.log(".eslintrc.js updated 🥳");
     });
   } else {
     console.error("Please add a project type!");

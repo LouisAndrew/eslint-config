@@ -20,12 +20,12 @@ jobs:
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 6.32.9
+          version: 8 
 
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: "20"
           cache: "pnpm"
           registry-url: https://npm.pkg.github.com/
 
@@ -36,9 +36,7 @@ jobs:
         uses: cycjimmy/semantic-release-action@v3
         with:
           semantic_version:
-            19.0.5 # It is recommended to specify a version range
-            # for semantic-release when using
-            # semantic-release-action lower than @v3
+            19.0.5 
           branches: |
             [
               'main',
@@ -51,6 +49,8 @@ jobs:
                 prerelease: true
               }
             ]
+          extra_plugins: |
+            "@semantic-release/git"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

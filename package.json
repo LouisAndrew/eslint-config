@@ -1,27 +1,30 @@
 {
   "name": "@louisandrew3/eslint-config",
   "version": "0.0.0",
-  "main": "init.mjs",
+  "main": "init.js",
   "type": "commonjs",
   "files": [
-    "init.mjs",
+    "init.js",
     "base.js",
     "node.js",
     "vue.js"
   ],
   "license": "MIT",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "5.55.0",
-    "@typescript-eslint/parser": "5.55.0",
+    "@typescript-eslint/eslint-plugin": "6.15.0",
+    "@typescript-eslint/parser": "6.15.0",
+    "clipboardy": "4.0.0",
     "commander": "10.0.0",
     "eslint": "8.36.0",
     "eslint-config-prettier": "8.7.0",
     "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prefer-arrow-functions": "3.2.4",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-simple-import-sort": "10.0.0",
     "prettier": "2.8.4"
   },
   "devDependencies": {
+    "@semantic-release/git": "10.0.1",
     "typescript": "5.0.2"
   },
   "bin": {
