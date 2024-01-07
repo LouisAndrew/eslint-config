@@ -3,8 +3,8 @@ module.exports = {
   extends: [
     "./base.js",
     "plugin:vue/essential",
-    "@vue/prettier",
-    "@vue/typescript",
+    "@vue/eslint-config-prettier",
+    "@vue/eslint-config-typescript",
   ],
   rules: {
     "vue/no-multiple-template-root": "off",

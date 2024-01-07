@@ -1,3 +1,4 @@
 #!/usr/bin/env node
 
-require("../init.js")()
+import("../init.js")();
+
