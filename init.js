@@ -30,8 +30,8 @@ const getExtraDependencies = (type) => {
 module.exports = () => {
   program.addOption(
     new Option("-t, --type <project-type>", "Type of project").choices(
-      programOptions
-    )
+      programOptions,
+    ),
   );
 
   program.parse();
@@ -40,7 +40,7 @@ module.exports = () => {
   const isClientUsingESM = async () => {
     try {
       const clientPackage = JSON.parse(
-        await readFile(join("./", "package.json"), "utf-8")
+        await readFile(join("./", "package.json"), "utf-8"),
       );
 
       if (clientPackage.type === "module") {
@@ -69,7 +69,7 @@ module.exports = () => {
         const installCommand = `ni -D ${additionalDependencies.join(" ")}`;
         cb.default.writeSync(installCommand);
         console.log(
-          `please run ${installCommand}. Install command copied to clipboard.`
+          `please run ${installCommand}. Install command copied to clipboard.`,
         );
       }
 
